@@ -17,7 +17,7 @@ namespace ProjectTwoLuckyNumbers
             do
             {
                 //Getting user input to declare the bounds of the range of random numbers:
-                Console.WriteLine("Welcome to the \"Lucky Numbers\" game! The jackpot is $888,888,888.888 \n Please enter a starting number for the lower bound of your range: ");
+                Console.WriteLine("Welcome to the \"Lucky Numbers\" game! \n The jackpot is $900,000 \n Please enter a starting number for the lower bound of your range: ");
                 int lowerBound = int.Parse(Console.ReadLine());
                 Console.WriteLine("Please enter a number for the upper bound of your range: ");
                 int upperBound = int.Parse(Console.ReadLine());
@@ -31,13 +31,11 @@ namespace ProjectTwoLuckyNumbers
                 {
                     Console.WriteLine("Please enter a number: ");
                     sixNumbers[i] = int.Parse(Console.ReadLine());
-                    while (upperBound <= sixNumbers[i] || sixNumbers[i] <= lowerBound)
+                    while (upperBound < sixNumbers[i] || sixNumbers[i] < lowerBound)
                     {
                         Console.WriteLine("Number invalid, please enter a valid number: ");
                         sixNumbers[i] = int.Parse(Console.ReadLine());
                     }
-
-                   
                 }
 
                 //Displaying the user's sesctions
@@ -55,15 +53,17 @@ namespace ProjectTwoLuckyNumbers
                 }
 
                 //Checking the number of correct guesses:
-                int correct = 0;
+                double correct = 0;
 
-                    for (int i = 0; i < luckyNumbers.Length; i++)
+                //for(int i =0; i < luckyNumbers.Length; i++)
+
+                for (int i = 0; i < luckyNumbers.Length; i++)
+                {
+                    if (sixNumbers[0] == luckyNumbers[i])
                     {
-                        if (sixNumbers[0] == luckyNumbers[i])
-                        {
-                            correct++;
-                        }
+                        correct++;
                     }
+                }
                 for (int i = 0; i < luckyNumbers.Length; i++)
                 {
                     if (sixNumbers[1] == luckyNumbers[i])
@@ -101,12 +101,10 @@ namespace ProjectTwoLuckyNumbers
                 }
 
                 Console.WriteLine("You guessed {0} numbers correctly!", correct);
-
-
-
-
-
-
+                
+                //Arthimetic to determine the amount of money user has won:
+                double winnings = (900000 * (correct/6));
+                Console.WriteLine("You won $" + winnings + "!");
 
 
                 //The final question of the loop, the input from this will determine if the user plays again
