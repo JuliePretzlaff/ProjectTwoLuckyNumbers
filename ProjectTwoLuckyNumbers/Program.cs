@@ -30,15 +30,14 @@ namespace ProjectTwoLuckyNumbers
                 for (int i = 0; i < sixNumbers.Length; i++)
                 {
                     Console.WriteLine("Please enter a number: ");
-                    int input = int.Parse(Console.ReadLine());
-                    if (lowerBound <= input && input <= upperBound)
-                    {
-                        sixNumbers[i] = input;
-                    }
-                    else
+                    sixNumbers[i] = int.Parse(Console.ReadLine());
+                    while (upperBound <= sixNumbers[i] || sixNumbers[i] <= lowerBound)
                     {
                         Console.WriteLine("Number invalid, please enter a valid number: ");
+                        sixNumbers[i] = int.Parse(Console.ReadLine());
                     }
+
+                   
                 }
 
                 //Displaying the user's sesctions
