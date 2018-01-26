@@ -55,6 +55,61 @@ namespace ProjectTwoLuckyNumbers
                     Console.WriteLine("Lucky Number: " + luckyNumbers[i]);
                 }
 
+                //Checking the number of correct guesses:
+                int correct = 0;
+
+                    for (int i = 0; i < luckyNumbers.Length; i++)
+                    {
+                        if (sixNumbers[0] == luckyNumbers[i])
+                        {
+                            correct++;
+                        }
+                    }
+                for (int i = 0; i < luckyNumbers.Length; i++)
+                {
+                    if (sixNumbers[1] == luckyNumbers[i])
+                    {
+                        correct++;
+                    }
+                }
+                for (int i = 0; i < luckyNumbers.Length; i++)
+                {
+                    if (sixNumbers[2] == luckyNumbers[i])
+                    {
+                        correct++;
+                    }
+                }
+                for (int i = 0; i < luckyNumbers.Length; i++)
+                {
+                    if (sixNumbers[3] == luckyNumbers[i])
+                    {
+                        correct++;
+                    }
+                }
+                for (int i = 0; i < luckyNumbers.Length; i++)
+                {
+                    if (sixNumbers[4] == luckyNumbers[i])
+                    {
+                        correct++;
+                    }
+                }
+                for (int i = 0; i < luckyNumbers.Length; i++)
+                {
+                    if (sixNumbers[5] == luckyNumbers[i])
+                    {
+                        correct++;
+                    }
+                }
+
+                Console.WriteLine("You guessed {0} numbers correctly!", correct);
+
+
+
+
+
+
+
+
                 //The final question of the loop, the input from this will determine if the user plays again
                 Console.WriteLine("Would you like to play again? Please enter \'yes\' o r\'no\'.");
                  answer = Console.ReadLine().ToLower();
