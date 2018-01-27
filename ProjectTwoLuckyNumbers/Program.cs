@@ -23,8 +23,10 @@ namespace ProjectTwoLuckyNumbers
                 int upperBound = int.Parse(Console.ReadLine());
                 Console.WriteLine("Try to guess the six numbers that will be chosen to win the game!");
 
+
                 //Creating an array to hold the user's input
                 int[] sixNumbers = new int[6];
+
 
                 //Populating the array with the user's unput of 6 numbers (only valid numbers!)
                 for (int i = 0; i < sixNumbers.Length; i++)
@@ -38,8 +40,11 @@ namespace ProjectTwoLuckyNumbers
                     }
                 }
 
-                //Displaying the user's sesctions
+
+                //Displaying the user's selections
                 Console.WriteLine("You have chosen the following numbers: {0}, {1}, {2}, {3}, {4}, {5}.", sixNumbers[0], sixNumbers[1], sixNumbers[2], sixNumbers[3], sixNumbers[4], sixNumbers[5]);
+
+
 
                 //Generating and displaying the 6 random "Lucky Numbers"
                 Console.WriteLine("The six Lucky Numbers are: ");
@@ -52,56 +57,68 @@ namespace ProjectTwoLuckyNumbers
                     Console.WriteLine("Lucky Number: " + luckyNumbers[i]);
                 }
 
+
                 //Checking the number of correct guesses:
                 double correct = 0;
 
-                //for(int i =0; i < luckyNumbers.Length; i++)
-
-                for (int i = 0; i < luckyNumbers.Length; i++)
+                for (int i = 0; i < sixNumbers.Length; i++)
                 {
-                    if (sixNumbers[0] == luckyNumbers[i])
+                    for (int j = 0; j < luckyNumbers.Length; j++)
                     {
-                        correct++;
+                        if (sixNumbers[i] == luckyNumbers[j])
+                        {
+                            correct++;
+                        }
                     }
                 }
-                for (int i = 0; i < luckyNumbers.Length; i++)
-                {
-                    if (sixNumbers[1] == luckyNumbers[i])
-                    {
-                        correct++;
-                    }
-                }
-                for (int i = 0; i < luckyNumbers.Length; i++)
-                {
-                    if (sixNumbers[2] == luckyNumbers[i])
-                    {
-                        correct++;
-                    }
-                }
-                for (int i = 0; i < luckyNumbers.Length; i++)
-                {
-                    if (sixNumbers[3] == luckyNumbers[i])
-                    {
-                        correct++;
-                    }
-                }
-                for (int i = 0; i < luckyNumbers.Length; i++)
-                {
-                    if (sixNumbers[4] == luckyNumbers[i])
-                    {
-                        correct++;
-                    }
-                }
-                for (int i = 0; i < luckyNumbers.Length; i++)
-                {
-                    if (sixNumbers[5] == luckyNumbers[i])
-                    {
-                        correct++;
-                    }
-                }
+                
+                //First way of checking numbers before I came up with the above more abstracted way
+                //for (int i = 0; i < luckyNumbers.Length; i++)
+                //{
+                //    if (sixNumbers[0] == luckyNumbers[i])
+                //    {
+                //        correct++;
+                //    }
+                //}
+                //for (int i = 0; i < luckyNumbers.Length; i++)
+                //{
+                //    if (sixNumbers[1] == luckyNumbers[i])
+                //    {
+                //        correct++;
+                //    }
+                //}
+                //for (int i = 0; i < luckyNumbers.Length; i++)
+                //{
+                //    if (sixNumbers[2] == luckyNumbers[i])
+                //    {
+                //        correct++;
+                //    }
+                //}
+                //for (int i = 0; i < luckyNumbers.Length; i++)
+                //{
+                //    if (sixNumbers[3] == luckyNumbers[i])
+                //    {
+                //        correct++;
+                //    }
+                //}
+                //for (int i = 0; i < luckyNumbers.Length; i++)
+                //{
+                //    if (sixNumbers[4] == luckyNumbers[i])
+                //    {
+                //        correct++;
+                //    }
+                //}
+                //for (int i = 0; i < luckyNumbers.Length; i++)
+                //{
+                //    if (sixNumbers[5] == luckyNumbers[i])
+                //    {
+                //        correct++;
+                //    }
+                //}
 
                 Console.WriteLine("You guessed {0} numbers correctly!", correct);
                 
+
                 //Arthimetic to determine the amount of money user has won:
                 double winnings = (900000 * (correct/6));
                 Console.WriteLine("You won $" + winnings + "!");
