@@ -19,7 +19,7 @@ namespace ProjectTwoLuckyNumbers
                 //Getting user input to declare the bounds of the range of random numbers:
                 Console.WriteLine("Welcome to the \"Lucky Numbers\" game! \n The jackpot is $900,000 \n Please enter a starting number for the lower bound of your range: ");
                 int lowerBound = int.Parse(Console.ReadLine());
-                Console.WriteLine("Please enter a number for the upper bound of your range: ");
+                Console.WriteLine("Please enter an ending number for the upper bound of your range: ");
                 int upperBound = int.Parse(Console.ReadLine());
                 Console.WriteLine("Try to guess the six numbers that will be chosen to win the game!");
 
@@ -45,15 +45,28 @@ namespace ProjectTwoLuckyNumbers
                 Console.WriteLine("You have chosen the following numbers: {0}, {1}, {2}, {3}, {4}, {5}.", sixNumbers[0], sixNumbers[1], sixNumbers[2], sixNumbers[3], sixNumbers[4], sixNumbers[5]);
 
 
-
                 //Generating and displaying the 6 random "Lucky Numbers"
                 Console.WriteLine("The six Lucky Numbers are: ");
 
+                //Random r = new Random();
+                //int[] luckyNumbers = new int[6];
+                //for (int i = 0; i < luckyNumbers.Length; i++)
+                //{
+                //    luckyNumbers[i] = r.Next(lowerBound, upperBound);
+                //    Console.WriteLine("Lucky Number: " + luckyNumbers[i]);
+                //}
+
+                //Stretch work to ensure there are no duplicate random numbers:
                 Random r = new Random();
                 int[] luckyNumbers = new int[6];
                 for (int i = 0; i < luckyNumbers.Length; i++)
                 {
-                    luckyNumbers[i] = r.Next(lowerBound, upperBound);
+                    luckyNumbers[i] = r.Next(1, 10);
+                    for (int j = 0; j < (luckyNumbers.Length - (luckyNumbers.Length - i)); j++)
+                        while (luckyNumbers[i] == luckyNumbers[j])
+                        {
+                            luckyNumbers[i] = r.Next(1, 10);
+                        }
                     Console.WriteLine("Lucky Number: " + luckyNumbers[i]);
                 }
 
